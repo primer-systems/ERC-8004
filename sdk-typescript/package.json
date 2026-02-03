@@ -1,6 +1,6 @@
 {
   "name": "erc-800claw",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ERC-8004 SDK for OpenClaw agents. Register, query, and rate agent identities on Ethereum.",
   "main": "index.js",
   "types": "index.d.ts",
