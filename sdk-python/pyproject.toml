@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "erc-800claw"
+version = "0.1.0"
+description = "ERC-8004 SDK for OpenClaw agents - Register, query, and rate agent identities on Ethereum"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Primer Systems", email = "dev@primer.systems" }
+]
+keywords = ["ethereum", "erc-8004", "ai-agents", "openclaw", "web3", "identity", "800claw"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "web3>=6.0.0",
+    "requests>=2.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+erc-800claw = "erc800claw.cli:main"
+
+[project.urls]
+Homepage = "https://8004.org"
+Repository = "https://github.com/primer-systems/ERC-8004"
+Documentation = "https://8004.org/docs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["erc800claw"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v"
+
+[tool.coverage.run]
+source = ["erc800claw"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+]
