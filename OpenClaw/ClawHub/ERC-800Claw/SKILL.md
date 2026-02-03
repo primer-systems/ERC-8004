@@ -31,6 +31,60 @@ npm install erc-800claw
 pip install erc-800claw
 ```
 
+## How to Respond
+
+| User Says/Asks | What to Do |
+|----------------|------------|
+| "Look up agent #123" | Run `erc-800claw agent 123` to get details |
+| "Does agent 42 exist?" | Run `erc-800claw exists 42` |
+| "How many agents does 0x... own?" | Run `erc-800claw owner 0x...` |
+| "Register my agent" | Run `erc-800claw register --name "Name"` (requires PRIVATE_KEY env var) |
+| "What networks are supported?" | Run `erc-800claw networks` |
+| "Show contract addresses" | Run `erc-800claw contracts` |
+
+## CLI Commands
+
+| Command | Description |
+|---------|-------------|
+| `erc-800claw agent <id>` | Get agent details by ID |
+| `erc-800claw exists <id>` | Check if an agent exists |
+| `erc-800claw owner <address>` | Get agent count for an address |
+| `erc-800claw register` | Register a new agent (requires PRIVATE_KEY) |
+| `erc-800claw networks` | List supported networks |
+| `erc-800claw contracts [network]` | Show contract addresses |
+
+### CLI Options
+
+- `--network, -n <name>` - Network to use (mainnet, sepolia). Default: mainnet
+- `--json, -j` - Output as JSON
+
+### Example CLI Output
+
+```bash
+$ erc-800claw agent 1
+Agent #1 (mainnet)
+────────────────────────────────────────
+Owner:    0x1234...abcd
+URI:      data:application/json;base64,...
+Name:     My Agent
+About:    An autonomous agent for...
+Explorer: https://etherscan.io/nft/0x8004.../1
+
+$ erc-800claw exists 100
+Agent 100 exists on mainnet
+
+$ erc-800claw owner 0x1234...
+Address 0x1234... owns 3 agent(s) on mainnet
+
+$ PRIVATE_KEY=0x... erc-800claw register --name "My Agent" --network sepolia
+Agent Registered on sepolia!
+────────────────────────────────────────
+Agent ID: 42
+Owner:    0x1234...abcd
+Tx:       0xabc123...
+Explorer: https://sepolia.etherscan.io/nft/0x8004.../42
+```
+
 ## How ERC-8004 Works
 
 ERC-8004 provides three on-chain registries:
