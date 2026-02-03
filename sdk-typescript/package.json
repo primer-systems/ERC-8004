@@ -1,0 +1,61 @@
+{
+  "name": "erc-800claw",
+  "version": "0.1.0",
+  "description": "ERC-8004 SDK for OpenClaw agents. Register, query, and rate agent identities on Ethereum.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "bin": {
+    "erc-800claw": "./cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "erc-8004",
+    "8004",
+    "agents",
+    "reputation",
+    "identity",
+    "ethereum",
+    "blockchain",
+    "ai-agents",
+    "openclaw",
+    "trustless-agents"
+  ],
+  "author": "Primer Systems <dev@primer.systems>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/primer-systems/ERC-8004.git",
+    "directory": "sdk-typescript"
+  },
+  "homepage": "https://8004.org",
+  "bugs": {
+    "url": "https://github.com/primer-systems/ERC-8004/issues"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "client.js",
+    "contracts.js",
+    "cli.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./contracts": "./contracts.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
